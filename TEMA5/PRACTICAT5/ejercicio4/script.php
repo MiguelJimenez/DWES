@@ -1,40 +1,58 @@
-		<!-- <select name="productos" id="productos">
-			<option value="lapiz">Lapicero</option>
-			<option value="goma">Goma</option>
-			<option value="sacapuntas">Sacapuntas</option>
-			<option value="regla">Regla</option>
-			<option value="boli">Bolígrafo</option>
-		</select> -->
-	<?php 
+<?php 
+session_start();
 
-/// NOTAS MIAS: meter el precio en una funcion con el paramettro producto, y luego pasarlo a la tabla
-
-	session_start();
-	$precios = array(0.60, 0.25, 0.60, 0.90, 0.35);
-	
-	
-	if (isset($_POST['anadir']))
+function precios($producto)
+{
+	switch ($producto)
 	{
-		$producto = $_POST['productos'];	
-		$_SESSION[$producto] = $_POST['cantidad'];
+		case 'Lapicero':
+		$precio = 0.60;
+		return $precio;
+		break;
 
-		echo "<table><tr><td>Producto</td><td>Cantidad</td></tr>";
+		case 'Goma':
+		$precio = 0.25;
+		return $precio;
+		break;
 
-		foreach ($_SESSION as $producto => $valor)
-		{
-			echo "<tr><td>$producto</td><td>$valor</td></tr>";			
-		}
-		echo "</table>";
+		case 'Sacapuntas':
+		$precio = 0.30;
+		return $precio;
+		break;
+
+		case 'Regla':
+		$precio = 0.90;
+		return $precio;
+		break;
+
+		case 'Boligrafo':
+		$precio = 0.35;
+		return $precio;
+		break;
+
 	}
-	
+}
+
+if (isset($_POST['anadir']))
+{
+	$producto = $_POST['productos'];	
+	$_SESSION[$producto] = $_POST['cantidad'];
 
 
-	
-	
-	
-		
-	
-	
-	 ?>
-	 <a href="formulario.html">Volver al formulario</a>
+	echo "<table border=1><tr><td>Producto</td><td>Cantidad</td><td>Precio</td><td>Subtotal</td></tr>";
+	$sumaTotal = 0;
+	foreach ($_SESSION as $producto => $valor)
+	{
+		$precio = number_format(precios($producto),2);
+		$subtotal = number_format(($precio * $valor),2);
+		$sumaTotal += $subtotal;
+
+		echo "<tr><td>$producto</td><td>$valor</td><td>$precio</td><td>$subtotal</td></tr>";			
+	}
+	echo "<tr><td></td><td></td><td>SUMA TOTAL</td><td>$sumaTotal</td></tr>";			
+	echo "</table>";
+}
+
+?>
+<a href="formulario.html">Volver al formulario</a>
 
