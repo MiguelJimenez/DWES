@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8">
+	<title>Ejercicio 4</title>
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+
+	<!-- Optional theme -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+
+	<!-- Latest compiled and minified JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+</head>
+<body>
+	<div class="container-fluid">
+		<h1>Ingrese sus datos</h1>
+		<form action="ejercicio4.php" method="post">
+			<div class="row">
+				<div class="col-md-4">
+					<label for="nombre" class="">Nombre:</label>
+					<input type="text" class="form-control" id="nombre" name="nombre" required>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-4">
+					<label for="pass" class="">Contraseña:</label>
+					<input type="text" class="form-control" id="pass" name="pass" required>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-4">
+					<label for="opcion" class="">Selecionar:</label>
+					<select name="opcion" id="opcion" class="form-control">
+						
+						<option value="1">LEER</option>
+						<option value="2">ESCRIBIR</option>
+			</select>
+					
+			</div>
+
+			</div>
+			<br>
+			<div class="row">
+				<div class="col-md-4">
+					<input type="submit" class="btn btn-success" value="Enviar">
+				</div>
+			</div>
+
+		</form>
+	</div>
+</body>
+</html>

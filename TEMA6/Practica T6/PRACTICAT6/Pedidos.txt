@@ -1,0 +1,6 @@
+Mesa 1
+Silla 4
+Sillon 2
+sofa 15
+Tomates 25
+ 
